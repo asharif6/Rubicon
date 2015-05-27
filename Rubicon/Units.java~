@@ -1,0 +1,19 @@
+
+public enum Units{
+  //Name, Max Moves, HP, Special Ability,
+  FIRE,
+  WIND,
+  DARKNESS,
+  EARTH,
+  LIGHTNING,
+  WATER,
+  PAWN;
+  
+  private Units(String name, int maxMoves, int HP, Ability a){
+    this.name =name;
+    this.maxMoves = maxMoves;
+    this.HP = HP;
+    this.ability = a;
+  }
+  
+}
