@@ -1,56 +1,97 @@
-import java.util.*;
-
-public class Board{
-  //FIELDS
-  protected int rows = 18;
-  protected int cols = 16;
-  String[][] board;
-  
-  //[[e1,w1,f1],[null, null, null],[e2,w2,f2]]
-  
-  // e1 w1 f1
-  //  -  -  - 
-  // e2 w2 f2 
-  public Board(int row, int cols){
-    this.rows = rows;
-    this.cols = cols;
-    this.board = new String[rows][cols];
-    for (int i = 0; i < this.board.length; i++){
-      for (int j = 0; j < this.board[0].length; j++){
-        if (i == 0 && j == 0){
-          this.board[i][j] = "0";
-        }
-        else if (j == 0 && i!=0){
-          this.board[i][j] = "" + i;
-        }
-        else if (i == 0 && j!=0){
-          this.board[i][j] = "" + j;
-        }
-      }
-    }
-  }
-  
-  
-  
-  
-  public String toString(){
-    String repr = " __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __\n";
-    String temp = "";
-    for (int i = 0; i < board.length; i++){
-      repr += "|";
-      for (int j = 0; j < board[0].length; j++){
-        temp = board[i][j];
-        if (temp!=null){
-          repr += temp;
-        }
-        else{
-          repr += "  ";
-        }
-        temp += "|";
-      }
-      repr += "\n __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __\n";
-    }
-    return repr;
-  }
+public class Board{ 
+  String[][] game = new String[18][16]; 
+   
+  public Board(){ 
+    for(int a = 0; a < game.length; a++){ 
+      for(int b = 0; b < game[0].length; b++){ 
+        game[a][b] = "||"; 
+      } 
+    } 
+    for(int i = 0; i < game.length;i++){ 
+      String a = "" + i; 
+      if(a.length() == 1){ 
+        game[i][0] = String.format("0%d",i); 
+      } 
+      else{ 
+        game[i][0] = ""+i; 
+      } 
+    } 
+    for(int e = 0; e < game[0].length; e++){ 
+      String a = "" + e; 
+      if(a.length() == 1){ 
+        game[0][e] = String.format("0%d",e); 
+      } 
+      else{ 
+        game[0][e] = ""+e; 
+      }       
+ 
+    } 
+     
+    game[1][1] = "P1"; 
+    game[1][2] = "F1"; 
+    game[1][3] = "P2"; 
+    game[1][4] = "W1"; 
+    game[1][5] = "P3"; 
+    game[1][6] = "D1"; 
+    game[1][7] = "P4"; 
+    game[1][8] = "e1"; 
+    game[1][9] = "P5"; 
+    game[1][10] = "L1"; 
+    game[1][11] = "P6"; 
+    game[1][12] = "w1"; 
+    game[1][13] = "P7"; 
+    game[1][14] = "P8"; 
+    game[1][15] = "P9"; 
+     
+     
+    game[game.length-1][1] = "pa"; 
+    game[game.length-1][2] = "F2"; 
+    game[game.length-1][3] = "pb"; 
+    game[game.length-1][4] = "W2"; 
+    game[game.length-1][5] = "pc"; 
+    game[game.length-1][6] = "D2"; 
+    game[game.length-1][7] = "pd"; 
+    game[game.length-1][8] = "e2"; 
+    game[game.length-1][9] = "pe"; 
+    game[game.length-1][10] = "L2"; 
+    game[game.length-1][11] = "pf"; 
+    game[game.length-1][12] = "w2"; 
+    game[game.length-1][13] = "pg"; 
+    game[game.length-1][14] = "ph"; 
+    game[game.length-1][15] = "pi"; 
+     
+  } 
+   
+   
+  public void collaborate(String piece, Coord nextmove){ 
+     
+     
+     
+    if(game[nextmove.r][nextmove.c] != null){ 
+      for(int i = 0; i < game.length; i++){ 
+        for(int e = 0; e < game[0].length; e++){ 
+          if(game[i][e].equals(piece)){ 
+            game[i][e] = "||"; 
+            game[nextmove.r][nextmove.c] = piece; 
+          } 
+        } 
+      } 
+    } 
+    else{ 
+      System.out.println("Can't move there"); 
+    } 
+  } 
+   
+   
+  public String toString(){ 
+    String ab = ""; 
+    for(int i = 0; i < game.length; i++){ 
+      for(int e = 0; e < game[0].length; e++){ 
+        ab += game[i][e] + " "; 
+      } 
+      ab += "\n"; 
+    } 
+    return ab; 
+  } 
+   
 }
-        
