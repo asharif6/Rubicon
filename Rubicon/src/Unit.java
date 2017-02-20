@@ -135,7 +135,6 @@ public abstract class Unit {
 	public String toString(){
 		return String.format("%s (%d)\nHP: %d", this.name, this.teamNum, this.HP);
 	}
-	
 //	public Spot getSpot(){
 //		return this.position;
 //	}

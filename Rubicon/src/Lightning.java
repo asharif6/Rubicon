@@ -3,12 +3,13 @@
 //Extended By: None
 
 public class Lightning extends MainUnit{
-
 	public Lightning(int x, int y, int teamNum){
 		super("Lightn.", x, y, teamNum);
 	}
-//WIP
+	
+	//Lightning's special ability interact directly with other units
 	public void specialAbility(int x,int y){
 		return;
 	}
+	//lightnings special ability is written in Unit as a result
 }

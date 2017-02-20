@@ -43,6 +43,7 @@ public class Spot {
 	
 	//representation of spots
 	public String toString(){
+		if (this.getUnit()==null) return "";
 		return this.getUnit().toString();
 	}
 
