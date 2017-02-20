@@ -31,6 +31,9 @@ public class Spot {
 	public Unit getUnit(){
 		return this.currUnit;
 	}
+	public boolean sameSpot(Spot o, Spot g){
+		return (g.x == o.x) && (g.y == o.y);
+	}
 	
 	//checks if unit has less than 0 hp. resets spot if so
 	public void updateSpot(){
@@ -43,7 +46,6 @@ public class Spot {
 	
 	//representation of spots
 	public String toString(){
-		if (this.getUnit()==null) return "";
 		return this.getUnit().toString();
 	}
 
